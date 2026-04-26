@@ -1,0 +1,401 @@
+/*
+    ملف CSS (style.css) لتصميم صفحة "درب الساكورا"
+    التركيز على الجمالية والوضوح والاتجاه من اليمين لليسار (RTL)
+*/
+
+/* الألوان */
+:root {
+    --primary-color: #333; /* لون أساسي غامق */
+    --accent-color: #f7789d; /* لون الساكورا (وردي/ماجنتا) */
+    --light-bg: #f4f4f4; /* خلفية فاتحة */
+    --white: #ffffff;
+    --font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+/* إعادة الضبط الأساسي */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    direction: rtl; /* الاتجاه من اليمين لليسار */
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--primary-color);
+    background-color: var(--white);
+}
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+}
+
+/* الأزرار (CTA) */
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    border: 2px solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.cta-button:hover {
+    background-color: #e65c84; /* لون أغمق عند التمرير */
+    border-color: #e65c84;
+}
+
+.cta-button.large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* 1. شريط التنقل (Header) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--light-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+header nav a {
+    margin-right: 1.5rem;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+header nav a:hover {
+    color: var(--accent-color);
+}
+
+header nav .cta-button {
+    margin-right: 0;
+}
+
+/* 2. قسم البطل (Hero Section) */
+/* *يجب استبدال رابط الصورة placeholder بصورة حقيقية لليابان* */
+.hero {
+    background: url('https://via.placeholder.com/1920x800/333333/ffffff?text=صورة+جبل+فوجي') center/cover no-repeat; 
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+}
+
+.hero::before { /* طبقة تظليل لزيادة وضوح النص */
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    z-index: 10;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+
+/* الأقسام العامة (Sections) */
+section {
+    padding: 4rem 5%;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    color: var(--accent-color);
+}
+
+/* 3. أبرز ما يميز الرحلة (Highlights) */
+.highlights {
+    background-color: var(--light-bg);
+}
+
+.highlight-cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.highlight-cards .card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    max-width: 300px;
+    transition: transform 0.3s;
+}
+
+.highlight-cards .card:hover {
+    transform: translateY(-5px);
+}
+
+.highlight-cards i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+/* 4. لمحة عن خط السير (Itinerary) */
+.itinerary {
+    background-color: var(--white);
+}
+
+.itinerary-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.timeline-item {
+    padding: 15px 0 15px 30px;
+    border-right: 3px solid var(--accent-color);
+    position: relative;
+}
+
+.timeline-item:last-child {
+    border-right: none;
+}
+
+.timeline-item h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.timeline-item::before { /* نقطة على الخط الزمني */
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    position: absolute;
+    right: -9px;
+    top: 20px;
+    border: 3px solid var(--white);
+}
+
+/* 5. دعوة للحجز (Final CTA) */
+.final-cta {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 5rem 5%;
+}
+
+.final-cta h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+}
+
+/* التذييل (Footer) */
+footer {
+    padding: 1rem 5%;
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* استجابة التصميم (Media Queries) - يجعل التصميم جيدًا على الهاتف */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+    header nav {
+        margin-top: 1rem;
+    }
+    header nav a {
+        margin: 0 0.5rem;
+    }
+    .hero {
+        height: 60vh;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .highlight-cards .card {
+        max-width: 100%;
+    }
+    .itinerary-timeline {
+        text-align: right;
+    }
+    /* تعديل الخط الزمني ليصبح من اليمين (RTL) */
+    .timeline-item {
+        border-right: 3px solid var(--accent-color);
+        border-left: none;
+        padding-left: 30px;
+        padding-right: 0;
+    }
+    .timeline-item::before {
+        right: -9px;
+        left: auto;
+    }
+}
+
+/* 6. معرض الصور (Gallery Section) */
+
+.gallery-section {
+background-color: var(--light-bg); /* اللون الرمادي الفاتح النظيف */
+}
+
+.gallery-section p {
+margin-bottom: 3rem;
+color: #666;
+}
+
+/* تصميم شبكة الصور (Gallery Grid) */
+.gallery-grid {
+/* يجعل العناصر تتجاوب وتنتظم في صفوف متعددة */
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 20px;
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 10px;
+}
+
+.gallery-item {
+position: relative;
+overflow: hidden;
+border-radius: 8px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+transform: scale(1.03); /* تكبير بسيط عند التمرير */
+}
+
+.gallery-item img {
+width: 100%;
+height: 100%;
+object-fit: cover; /* يضمن تغطية العنصر بالصورة دون تشويه */
+display: block;
+transition: opacity 0.3s ease;
+}
+
+/* التسمية التوضيحية (Caption) */
+.caption {
+position: absolute;
+bottom: 0;
+right: 0;
+width: 100%;
+background-color: rgba(0, 0, 0, 0.6);
+color: var(--white);
+padding: 10px;
+text-align: right;
+font-size: 0.9rem;
+opacity: 0; /* مخفية افتراضياً */
+transform: translateY(100%);
+transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* إظهار التسمية عند التمرير */
+.gallery-item:hover .caption {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* 7. قسم الحجز (Booking Section) */
+
+.booking-section {
+background-color: var(--white);
+padding: 6rem 5%;
+}
+
+.booking-section h2 {
+color: var(--primary-color);
+margin-bottom: 0.5rem;
+}
+
+.booking-section .subtitle {
+margin-bottom: 3rem;
+color: #666;
+}
+
+.booking-form {
+max-width: 600px;
+margin: 0 auto;
+text-align: right; 
+padding: 30px;
+border-radius: 10px;
+background-color: var(--light-bg);
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+margin-bottom: 20px;
+}
+
+.form-group label {
+display: block;
+font-weight: 700;
+margin-bottom: 8px;
+color: var(--primary-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="date"] {
+width: 100%;
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 6px;
+font-family: inherit;
+font-size: 1rem;
+direction: rtl; /* لضمان ظهور النص داخل الحقل بشكل سليم */
+}
+
+/* تخصيص زر التأكيد */
+.booking-form .cta-button {
+width: 100%;
+margin-top: 20px;
+}
+
+.message {
+text-align: center;
+margin-top: 20px;
+font-weight: 700;
+/* سيتم تعيين اللون في JS */
+}
